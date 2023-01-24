@@ -12,7 +12,7 @@ This Project is an highly configurable adapter to use a SNES controller
 as a Commodore 64 Joystick.
 
 It supports up to 3 fire buttons per Joystick using POTX and POTY as
-utilized in games like `MW_ULTRA
+utilized in games like `MW ULTRA
 <https://www.protovision.games/games/mwultra.php>`_ or anything on that
 list over `here <http://wiki.icomp.de/wiki/DB9-Joystick#C64>`_ and can
 be tested with `Anykey <https://github.com/T-Pau/Anykey>`_ or `Joyride

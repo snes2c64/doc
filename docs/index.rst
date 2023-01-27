@@ -4,19 +4,82 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
+.. include :: ./_static/buttons.rst
+.. include :: ./_static/links.rst
+.. include :: ./_static/images.rst
+
+
+
+
+
+All about this project is found in this github organization `github/snes2c64`_.
+
+
 ##########
  Overview
 ##########
+
+**************************
+Icon used in this Document
+**************************
+
+.. list-table:: Icon Description
+    :widths: 50 50
+    :header-rows: 1
+
+    * - Icon
+      - Description
+    * - |F1|
+      - Fire (1) on C64 pressed
+    * - |F2|
+      - Fire (2) on C64 pressed
+    * - |F3|
+      - Fire (3) on C64 pressed
+    * - |AF|
+      - Any action in combination with with this is not pressed constantly but in a repeating manner
+    * - |SU|
+      - Up on Gamepad pressed
+    * - |SD|  
+      - Down on Gamepad pressed
+    * - |SL|
+      - Left on Gamepad pressed
+    * - |SR|
+      - Right on Gamepad pressed
+    * - |CU|  
+      - Up on C64 Joystick pressed
+    * - |CD|  
+      - Down on C64 Joystick pressed
+    * - |CL|
+      - Left on C64 Joystick pressed
+    * - |CR|  
+      - Right on C64 Joystick pressed
+    * - |A| 
+      - Button A on Gamepad pressed
+    * - |B| 
+      - Button B on Gamepad pressed  
+    * - |X|
+      - Button X on Gamepad pressed
+    * - |Y|
+      - Button Y on Gamepad pressed
+    * - |L|
+      - Shoulder L on Gamepad pressed
+    * - |R|
+      - Shoulder R on Gamepad pressed
+    * - |ST|
+      - Start on Gamepad pressed
+    * - |SE|
+      - Select on Gamepad pressed
+    
+
+
 
 This Project is an highly configurable adapter to use a SNES controller
 as a Commodore 64 Joystick.
 
 It supports up to 3 fire buttons per Joystick using POTX and POTY as
-utilized in games like `MW ULTRA
-<https://www.protovision.games/games/mwultra.php>`_ or anything on that
-list over `here <http://wiki.icomp.de/wiki/DB9-Joystick#C64>`_ and can
-be tested with `Anykey <https://github.com/T-Pau/Anykey>`_ or `Joyride
-<https://github.com/T-Pau/Joyride>`_.
+utilized in games like `MW_ULTRA`_ or anything on the `multi_button_game_list`_ and can
+be tested with `Anykey`_ or `Joyride`_.
 
 It contains of multiple Parts:
 
@@ -26,10 +89,10 @@ It contains of multiple Parts:
       -  2 LED's with resistors
       -  a 9 pin D-Sub connector to connect to the C64
       -  a SNES connector
-      -  and last but not least a PCB kindly layouted by `OliverW. <https://www.forum64.de/wcf/index.php?user/1989-oliverw/>`_
+      -  and last but not least a PCB kindly layouted by `OliverW.`_
 
    -  Firmware for the Arduino Nano
-   -  a cli and gui application to configure the adapter
+   -  a cli and gui application to configure the adapter (TODO, tim benennen)
 
 ###############
  Build you Own
@@ -65,30 +128,33 @@ LED's are optional but are nice to get feedback from the adapter.
 Sized are only critical if you use OliverW.'s Gerbers, otherwise you can use whatever you want.
    -  Arduino Nano
 
-   -  2 LED's either 3mm or //TODO smd size, 2 different colors
+   -  2 LED's either 3mm or SMD, 2 different colors
 
-   -  2 resistors matching your LED's either 1/4W TH or SMD size //TODO
+   -  2 resistors matching your LED's either 1/4W TH or SMD
 
-   -  9 pin D-Sub connector like this //TODO link reichelt
+   -  9 pin D-Sub connector like `W+P 107-09-2-1-0`_ from Reichelt.de
 
-   -  SNES connector Standing. Easily found on aliexpress or Ebay.
+   -  SNES connector standing. Easily found on aliexpress or Ebay with search term `SNES controller connector`.
       Usually there a 2 different types, standing and angled. While Both
       fit if you use just one Adapter, you can't connect anything in
       Port1 if you use an angled Connector in Port2.
 
-   -  optional: a tactile switch to reset the Arduino if it dosn't come
-      with a switch.
+   -  optional: a tactile switch to reset the Arduino.
 
-   -  optional but recomendend: 3 M3 Screws 5 to 10mm long and 3 M3
+   -  optional but recommended: 3 M3 Screws 5 to 10mm long and 3 M3
       standoffs 5 to 10mm long so that the adapters Connector sits at
-      the same height then the C64's
+      the same height then the C64's, alternatively a 3d Printed Case //TODO
+
+   -  For sure you'll need a SNES controller, the Cheap ones from aliexpress for about 10 bucks are fine.
 
 ***********************
  flashing the firmware
 ***********************
 
-You could either open the snes2c64.ino in the Arduino IDE and flash it
-from there use the hex file from the releases and flash that in a way
+The firmware is found in this Repository: `github/snes2c64/firmware`_.
+
+You either could open the firmware.ino in the Arduino IDE and flash it
+from there or use the hex file from the releases and flash that in a way
 convenient for you. Make sure you have at least set the pins correct if
 you don't use the default wiring.
 
@@ -99,7 +165,7 @@ Things you might want to change in Firmware either way:
    // START OF CONFIGURATION
    #define MAPCOUNT 8                     // Number of Maps, might be 1-8, further explanation in section Usage //TODO: link
    // clang-format off
-   byte maps[10*MAPCOUNT] = {             // Configuration of you Default maps, further explanation in section Usage //TODO: link
+   const byte defaultMaps[10*MAPCOUNT] = {             // Configuration of you Default maps, further explanation in section Usage //TODO: link
                        /* B     */ FN_FIRE,
                        /* Y     */ FN_FIRE | FN_AUTO_FIRE,
 
@@ -196,26 +262,26 @@ In the default configuration there are 2 maps configured:
 
     * - PAD-Button
       - C64 Action
-    * - B
-      - Fire1
-    * - Y
-      - Fire1 + Auto Fire
-    * - A
-      - Fire3
-    * - X
-      - Fire3 + Auto Fire
-    * - L
-      - Fire2 + Auto Fire
-    * - R
-      - Fire2
-    * - UP
-      - Up
-    * - DOWN
-      - Down
-    * - LEFT
-      - Left
-    * - RIGHT
-      - Right
+    * - |B|
+      - |F1|
+    * - |Y|
+      - |F1| + |AF|
+    * - |A|
+      - |F3|
+    * - |X|
+      - |F3| + |AF|
+    * - |L|
+      - |F2| + |AF|
+    * - |R|
+      - |F2|
+    * - |SU|
+      - |CU|
+    * - |SD|
+      - |CD|
+    * - |SL|
+      - |CL|
+    * - |SR|
+      - |CR|
 
 .. list-table:: Map2
     :widths: 10 20
@@ -223,28 +289,119 @@ In the default configuration there are 2 maps configured:
 
     * - PAD-Button
       - C64 Action
-    * - B
-      - Fire1
-    * - Y
-      - UP
-    * - A
-      - Fire1 + Auto Fire
-    * - X
-      - Fire3
-    * - L
-      - Fire2
-    * - R
-      - Fire2
-    * - UP
-      - Up
-    * - DOWN
-      - Down
-    * - LEFT
-      - Left
-    * - RIGHT
-      - Right
+    * - |B|
+      - |F1|
+    * - |Y|
+      - |CU|
+    * - |A|
+      - |F1| + |AF|
+    * - |X|
+      - |F3|
+    * - |L|
+      - |F2|
+    * - |R|
+      - |F2|
+    * - |SU|
+      - |CU|
+    * - |SD|
+      - |CD|
+    * - |SL|
+      - |CL|
+    * - |SR|
+      - |CR|
 
 This is useful for platformers and anything that uses UP as Jump, since you can jump using Y and still use the D-Pad for movement.
+
+***************
+Setting up maps
+***************
+
+You can setup up to 8 maps, they are used to map the SNES gamepad buttons to action triggered un the C64.
+You can setup your default maps in sourcecode before uploading the firmware and you are able to manipulate the maps without flashing firmware with the `github/snes2c64/gui`_.
+
+On a logic Level both are essential the same, but the GUI is much more user friendly.
+
+Maps work like this:
+Every map is a list of 10 bytes, each byte represents one of the 10 buttons on the SNES gamepad.
+Each byte represents actions that are triggered when the button is pressed.
+Possible Actions are:
+
+.. list-table:: Actions
+    :widths: 33 33 33
+    :header-rows: 1
+
+    * - Icon
+      - Description
+      - Name in Sorce Code
+    * - |F1|
+      - Fire (1) on C64 pressed
+      - `FN_FIRE`
+    * - |F2|
+      - Fire (2) on C64 pressed
+      - `FN_FIRE2`
+    * - |F3|
+      - Fire (3) on C64 pressed
+      - `FN_FIRE3`
+    * - |AF|
+      - Autofire
+      - `FN_AUTO_FIRE`
+    * - |CU|
+      - Up on C64 Joystick pressed
+      - `FN_UP`
+    * - |CD|
+      - Down on C64 Joystick pressed
+      - `FN_DOWN`
+    * - |CL|
+      - Left on C64 Joystick pressed
+      - `FN_LEFT`
+    * - |CR|
+      - Right on C64 Joystick pressed
+      - `FN_RIGHT`
+
+Any Button can be assigned none, one or many of these actions.
+Be aware that |AF| is not an action on its own, it is a modifier for other actions on the same button.
+|AF| ist not "press the fire button repeadly" it is "press all configured other buttons repeadly".
+It could be "pressign |CD| repeatetly" or "pressing |F1| and |CU| repeadly" when paired with |F1| or |CU|.
+
+You can have multiple actions on one button, eg. you can bind |F1| and |CU| to the same button,
+you could even bind |CU| and |CD| to eg. the |L| button, if you really want to.
+
+****************************
+Button Mapping in sourcecode
+****************************
+at the top of the firmware.ino file find `const byte defaultMaps`...
+This is where you can set your default maps.
+It's just a comma separated list actions.
+Every 10 actions are one map.
+The corresponding buttons for each map are in the order:
+|B|, |Y|, |SU|, |SD|, |SL|, |SR| , |A|, |X|, |L|, |R|
+
+So the first 10 elements are for the first map (|B|), elements 11-20 are for the second map (|Y|) and so on.
+
+If you need to have no action on a button, just put `FN_NONE` there.
+To have multiple actions on one button, just "add them up" using `|` as in  `FN_FIRE | FN_AUTO_FIRE`.
+
+***************************
+Button mapping with the gui
+***************************
+
+To use the gui you need to have the `github/snes2c64/gui`_ downloaded to your computer.
+First you need to connect the adapter to your computer.
+Then you need click connect and choose the right serial.
+Then you can choose a map.
+You should see something like this:
+
+|SC_GUI_MAP1_EDIT|
+
+You are now viewing / editing Map1 (|B|), see the lower left corner.
+Every column represents one button on the SNES gamepad which is indicated by the icon in the first row.
+All other icons in a column represent actions that are mapped to that button.
+The grayish ones are deactivated, the white ones are active, click to toggle.
+Ones you are finished click "Upload" to Upload this map to the adapter.
+To Edit another map click the button in the lower left corner, the Map chooser you have already seen wil pop up again.
+
+
+
 
 *****************
 Disabling Buttons
@@ -312,21 +469,21 @@ Map to Button Mapping is as follows:
     :header-rows: 1
 
     * - 1
-      - B
+      - |B|
     * - 2
-      - Y
+      - |Y|
     * - 3
-      - UP
+      - |SU|
     * - 4
-      - DOWN
+      - |SD|
     * - 5
-      - LEFT
+      - |SL|
     * - 6
-      - RIGHT
+      - |SR|
     * - 7
-      - A
+      - |A|
     * - 8
-      - X
+      - |X|
 
 When a map is chosen, LED1 stays on while LED2 blinks the number of the map you chose.
 then Both LEDs turn off, the map is active and normal mode is active again.
@@ -380,20 +537,6 @@ The firmware is not actually now but brought back to the state it was in when th
 
 If using the SOFT-reset via START and SELECT will result in a different behavior then a HARD-reset via the reset button you probably have found a bug, please report it.
 
-############################
-Using the Configuration Tool
-############################
-
-***
-GUI
-***
-//TODO screenshots when ready
-
-***
-CLI
-***
-
-//TODO
 
 ####################
 Resetting the EEPROM
@@ -404,3 +547,13 @@ Both LED's will light up and stay until you release the buttons.
 Now the Adapter waits for your confirmation to reset the EEPROM.
 You can do that by pressing START SELECT L and R.
 Once that's done the Adapter will reset the EEPROM and restart.
+
+
+
+
+
+
+
+
+
+

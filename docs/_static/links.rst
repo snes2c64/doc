@@ -12,4 +12,7 @@
 
 .. _OliverW.: https://www.forum64.de/wcf/index.php?user/1989-oliverw/
 
+.. _Tim: https://github.com/dithmer
+.. _Schematics: ./_static/Schematic_SNES2C64_v1.1_2023-02-15.pdf
+
 .. _W+P 107-09-2-1-0: https://www.reichelt.de/d-sub-stecker-9-polig-gewinkelt-w-p-107-09-1-1-0-p293990.html

@@ -645,7 +645,7 @@ Der Inhalt deines Bausatzes sollte Etrwa so aussehen:
 
 Schnapp dir dein Lötkolben und folge dieser Anleitung:
 
-Zuerst sind die ganzen Kleinteile dran. Die LED's kommen mit dem Langen bein in das mit K beschriftete Loch.
+Zuerst sind die ganzen Kleinteile dran. Die LED's kommen mit dem kurzen Bein in das mit K beschriftete Loch.
 
 .. image:: ./_static/assembly/PXL_20230323_154208111.MP.jpg
 

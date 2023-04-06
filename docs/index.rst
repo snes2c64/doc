@@ -299,7 +299,7 @@ game play and can be configured freely. you are able to configure up to
 firmware before flashing, or by changing them with the configuration
 tool afterwards.
 
-Any of these Buttons can be mapt to one, multiple or none of the
+Any of these Buttons can be mapped to one, multiple or none of the
 following functions:
 
 -  Joystick Up
@@ -539,19 +539,19 @@ Map to Button Mapping is as follows:
     :header-rows: 1
 
     * - 1
-      - |B|
-    * - 2
-      - |Y|
-    * - 3
       - |SU|
-    * - 4
+    * - 2
       - |SD|
-    * - 5
+    * - 3
       - |SL|
-    * - 6
+    * - 4
       - |SR|
-    * - 7
+    * - 5
+      - |B|
+    * - 6
       - |A|
+    * - 7
+      - |Y|
     * - 8
       - |X|
 

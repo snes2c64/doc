@@ -167,7 +167,7 @@ It contains of multiple Parts:
 **************
 
 You have a few Options here:
-   -  you can order you PCB's with the Gerber's released after the initial order is finished
+   -  you can order you PCB's with the `Gerbers`_
       release
    -  design your own PCB
    -  Just do it using flying wires

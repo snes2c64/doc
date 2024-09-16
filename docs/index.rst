@@ -486,7 +486,7 @@ Use This for UP with map2 for example in Giana Sisters to have better Jump Contr
 Choosing a Map
 ============================
 To choose a Map just press START and the Button of the Map you want to.
-Possible Buttons are A, B, X, Y, L, R, UP, DOWN, LEFT, RIGHT.
+Possible Buttons are A, B, X, Y, UP, DOWN, LEFT, RIGHT.
 
 ============================
 Setting Autofire Speed
@@ -929,7 +929,7 @@ Maps auswählen
 **************
 Um eine Map auszuwählen drücke einfach START und den Button der Map die du auswählen willst.
 
-Mögliche Buttons sind A, B, X, Y, L, R, UP, DOWN, LEFT, RIGHT.
+Mögliche Buttons sind A, B, X, Y, UP, DOWN, LEFT, RIGHT.
 
 Wenn du Start Drückst blinkt für 3 Sekunden LED1, in der Zeit kannst du einen Button drücken um die Map zu wechseln.
 Wenn du eine Map gewählt hast blinkt im Erfolgsfall LED2 passend zur mapnummer, (1 mal für map 1) und die Map wird aktiviert.
